@@ -1,0 +1,44 @@
+<?php //App_Entity_CartItem
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\CartItem',
+                'product',
+                'color',
+                'quantity',
+            ],
+            'attributesMetadata' => [
+                [
+                    'product' => $o[1],
+                    'color' => $o[2],
+                    'quantity' => $o[3],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'cart:write',
+                    'cart:read',
+                ],
+                [
+                    'cart:write',
+                    'cart:read',
+                ],
+                [
+                    'cart:write',
+                    'cart:read',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

@@ -1,0 +1,3 @@
+<?php //route_name_f5904e39844e6a70eb382b982b178a39
+
+return [PHP_INT_MAX, 'api_colors_get_collection'];

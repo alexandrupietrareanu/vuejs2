@@ -1,0 +1,90 @@
+<?php //App_Entity_Purchase
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Purchase',
+                'id',
+                'customerName',
+                'customerEmail',
+                'customerAddress',
+                'customerZip',
+                'customerCity',
+                'customerPhone',
+                'isShipped',
+                'createdAt',
+                'purchaseItems',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'customerName' => $o[2],
+                    'customerEmail' => $o[3],
+                    'customerAddress' => $o[4],
+                    'customerZip' => $o[5],
+                    'customerCity' => $o[6],
+                    'customerPhone' => $o[7],
+                    'isShipped' => $o[8],
+                    'createdAt' => $o[9],
+                    'purchaseItems' => $o[10],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'purchase:read',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+                [
+                    'purchase:read',
+                ],
+                [
+                    'purchase:read',
+                ],
+                [
+                    'purchase:read',
+                    'purchase:write',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
