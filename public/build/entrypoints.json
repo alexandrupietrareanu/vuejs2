@@ -3,8 +3,8 @@
     "app": {
       "js": [
         "https://localhost:8080/build/runtime.js",
-        "https://localhost:8080/build/vendors~_tmp_copy~app~products.js",
-        "https://localhost:8080/build/vendors~app~products.js",
+        "https://localhost:8080/build/vendors~_tmp_copy~app~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~app~products~shopping-cart.js",
         "https://localhost:8080/build/vendors~app.js",
         "https://localhost:8080/build/app.js"
       ]
@@ -12,10 +12,21 @@
     "products": {
       "js": [
         "https://localhost:8080/build/runtime.js",
-        "https://localhost:8080/build/vendors~_tmp_copy~app~products.js",
-        "https://localhost:8080/build/vendors~app~products.js",
-        "https://localhost:8080/build/vendors~products.js",
+        "https://localhost:8080/build/vendors~_tmp_copy~app~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~app~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~products~shopping-cart.js",
+        "https://localhost:8080/build/products~shopping-cart.js",
         "https://localhost:8080/build/products.js"
+      ]
+    },
+    "shopping-cart": {
+      "js": [
+        "https://localhost:8080/build/runtime.js",
+        "https://localhost:8080/build/vendors~_tmp_copy~app~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~app~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~products~shopping-cart.js",
+        "https://localhost:8080/build/products~shopping-cart.js",
+        "https://localhost:8080/build/shopping-cart.js"
       ]
     }
   }

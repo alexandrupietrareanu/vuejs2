@@ -109,8 +109,11 @@ class __TwigTemplate_e6a358c4c823c37d4ba2e4bf21d40d0023309e376a8470c075020988c18
         }
         // line 42
         echo "                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">
-                            Shopping Cart (<span>";
+                        <a class=\"nav-link\" href=\"";
+        // line 43
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_cart");
+        echo "\">
+                            Shopping Cart (<span id=\"js-shopping-cart-items\">";
         // line 44
         echo twig_escape_filter($this->env, $this->extensions['App\Twig\CartExtension']->countCartItems(), "html", null, true);
         echo "</span>)
@@ -259,7 +262,7 @@ class __TwigTemplate_e6a358c4c823c37d4ba2e4bf21d40d0023309e376a8470c075020988c18
 
     public function getDebugInfo()
     {
-        return array (  239 => 68,  236 => 67,  232 => 65,  226 => 63,  224 => 62,  221 => 61,  211 => 60,  193 => 51,  180 => 7,  170 => 6,  151 => 5,  139 => 70,  137 => 60,  127 => 52,  125 => 51,  115 => 44,  111 => 42,  103 => 37,  95 => 32,  92 => 31,  84 => 26,  81 => 25,  79 => 24,  66 => 14,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  242 => 68,  239 => 67,  235 => 65,  229 => 63,  227 => 62,  224 => 61,  214 => 60,  196 => 51,  183 => 7,  173 => 6,  154 => 5,  142 => 70,  140 => 60,  130 => 52,  128 => 51,  118 => 44,  114 => 43,  111 => 42,  103 => 37,  95 => 32,  92 => 31,  84 => 26,  81 => 25,  79 => 24,  66 => 14,  59 => 9,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -306,8 +309,8 @@ class __TwigTemplate_e6a358c4c823c37d4ba2e4bf21d40d0023309e376a8470c075020988c18
                         </li>
                     {% endif %}
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">
-                            Shopping Cart (<span>{{ count_cart_items() }}</span>)
+                        <a class=\"nav-link\" href=\"{{ path('app_cart') }}\">
+                            Shopping Cart (<span id=\"js-shopping-cart-items\">{{ count_cart_items() }}</span>)
                         </a>
                     </li>
                 </ul>
