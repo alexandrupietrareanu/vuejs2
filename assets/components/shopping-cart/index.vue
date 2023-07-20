@@ -21,6 +21,15 @@
                 v-for="item in items"
                 :key="item.id"
                 :item="item"
+                @updateQuantity="$emit('updateQuantity', {
+                    productId: item.product['@id'],
+                    colorId: item.color ? item.color['@id'] : null,
+                    quantity: $event.quantity,
+                })"
+                @removeFromCart="$emit('removeFromCart', {
+                    productId: item.product['@id'],
+                    colorId: item.color ? item.color['@id'] : null,
+                })"
             />
             <div class="p-3">
                 Total: <strong>${{ totalPrice }}</strong>

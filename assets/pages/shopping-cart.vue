@@ -9,6 +9,11 @@
                     <shopping-cart-list
                         v-if="completeCart"
                         :items="completeCart.items"
+                        @updateQuantity="updateQuantity"
+                        @removeFromCart="removeProductFromCart(
+                            $event.productId,
+                            $event.colorId,
+                        )"
                     />
                 </div>
             </div>
@@ -73,6 +78,9 @@ export default {
             const productIds = this.cart.items.map((item) => item.product);
             const productsResponse = await fetchProductsById(productIds);
             this.products = productsResponse.data['hydra:member'];
+        },
+        updateQuantity({ productId, colorId, quantity }) {
+            this.updateProductQuantity(productId, colorId, quantity);
         },
     },
 };
