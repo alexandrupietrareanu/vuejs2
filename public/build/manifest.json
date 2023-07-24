@@ -8,6 +8,7 @@
   "build/vendors~app.js": "https://localhost:8080/build/vendors~app.js",
   "build/vendors~app~products~shopping-cart.js": "https://localhost:8080/build/vendors~app~products~shopping-cart.js",
   "build/vendors~products~shopping-cart.js": "https://localhost:8080/build/vendors~products~shopping-cart.js",
+  "build/vendors~shopping-cart.js": "https://localhost:8080/build/vendors~shopping-cart.js",
   "build/fonts/fa-brands-400.eot": "https://localhost:8080/build/fonts/fa-brands-400.0fea2496.eot",
   "build/fonts/fa-brands-400.woff2": "https://localhost:8080/build/fonts/fa-brands-400.c967a94c.woff2",
   "build/fonts/fa-brands-400.woff": "https://localhost:8080/build/fonts/fa-brands-400.dc2cbadd.woff",
@@ -25,5 +26,6 @@
   "build/images/fa-solid-900.svg": "https://localhost:8080/build/images/fa-solid-900.371dbce0.svg",
   "build/images/loading.gif": "https://localhost:8080/build/images/loading.gif",
   "build/images/mvp-logo-dark.png": "https://localhost:8080/build/images/mvp-logo-dark.png",
-  "build/images/mvp-logo-light.png": "https://localhost:8080/build/images/mvp-logo-light.png"
+  "build/images/mvp-logo-light.png": "https://localhost:8080/build/images/mvp-logo-light.png",
+  "build/vendors~products.js": "https://localhost:8080/build/vendors~products.js"
 }

@@ -17,7 +17,7 @@
             :disabled="!allowAddToCart"
             @click="addToCart"
         >
-            Add to Cart
+            {{ addButtonText }}
             <i
                 v-show="addToCartLoading"
                 class="fas fa-spinner fa-spin"
@@ -53,12 +53,27 @@ export default {
             type: Boolean,
             required: true,
         },
+        addButtonText: {
+            type: String,
+            default: 'Add to cart',
+        },
     },
     data() {
         return {
             quantity: 1,
             selectedColorId: null,
         };
+    },
+    methods: {
+        updateSelectedColor(iri) {
+            this.selectedColorId = iri;
+        },
+        addToCart() {
+            this.$emit('add-to-cart', {
+                quantity: this.quantity,
+                selectedColorId: this.selectedColorId,
+            });
+        },
     },
 };
 </script>

@@ -1,20 +1,61 @@
 <template>
     <div :class="[$style.component, 'container-fluid']">
         <div class="row">
-            <aside class="col-xs-12 col-lg-3" />
+            <aside class="col-xs-12 col-lg-3">
+                <cart-sidebar
+                    v-if="featuredProduct"
+                    :featured-product="featuredProduct"
+                    :add-to-cart-loading="addToCartLoading"
+                    :add-to-cart-success="addToCartSuccess"
+                    :allow-add-to-cart="cart !== null"
+                    @add-to-cart="addProductToCart(
+                        featuredProduct,
+                        $event.selectedColorId,
+                        $event.quantity,
+                    )"
+                />
+            </aside>
             <div class="col-xs-12 col-lg-9">
-                <title-component text="Shopping Cart" />
+                <transition
+                    name="fade"
+                    mode="out-in"
+                >
+                    <title-component
+                        :key="currentState"
+                        :text="pageTitle"
+                    />
+                </transition>
                 <div class="content p-3">
                     <loading v-show="completeCart === null" />
-                    <shopping-cart-list
-                        v-if="completeCart"
-                        :items="completeCart.items"
-                        @updateQuantity="updateQuantity"
-                        @removeFromCart="removeProductFromCart(
-                            $event.productId,
-                            $event.colorId,
-                        )"
-                    />
+                    <transition
+                        name="fade"
+                        mode="out-in"
+                    >
+                        <shopping-cart-list
+                            v-if="completeCart && currentState === 'cart'"
+                            :items="completeCart.items"
+                            @updateQuantity="updateQuantity"
+                            @removeFromCart="removeProductFromCart(
+                                $event.productId,
+                                $event.colorId,
+                            )"
+                        />
+
+                        <checkout-form
+                            v-if="completeCart && currentState === 'checkout'"
+                        />
+                    </transition>
+
+                    <div
+                        v-if="completeCart && completeCart.items.length > 0"
+                    >
+                        <button
+                            class="btn btn-primary"
+                            @click="switchState"
+                        >
+                            {{ buttonText }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -23,15 +64,19 @@
 <script>
 import TitleComponent from '@/components/title';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+import CheckoutForm from '@/components/checkout';
 import Loading from '@/components/loading.vue';
 import ShoppingCartList from '@/components/shopping-cart';
 
-import { fetchProductsById } from '@/services/products-service';
+import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
 import { fetchColors } from '@/services/colors-service';
+import CartSidebar from '@/components/shopping-cart/cart-sidebar';
 
 export default {
     name: 'ShoppingCart',
     components: {
+        CartSidebar,
+        CheckoutForm,
         Loading,
         ShoppingCartList,
         TitleComponent,
@@ -39,8 +84,10 @@ export default {
     mixins: [ShoppingCartMixin],
     data() {
         return {
+            currentState: 'cart',
             products: null,
             colors: null,
+            featuredProduct: null,
         };
     },
     computed: {
@@ -61,19 +108,33 @@ export default {
             });
 
             return {
-                items: completeItems,
+                items: completeItems.filter((item) => item.product),
             };
+        },
+        pageTitle() {
+            return this.currentState === 'cart'
+                ? 'Shopping Cart'
+                : 'Checkout';
+        },
+        buttonText() {
+            return this.currentState === 'cart'
+                ? 'Check Out >>'
+                : '<< Back';
         },
     },
     watch: {
-        async cart() {
-            await this.loadProducts();
+        'cart.items.length': function watchCartItemsLength() {
+            this.loadProducts();
         },
     },
     async created() {
+        this.loadFeaturedProducts();
         this.colors = (await fetchColors()).data['hydra:member'];
     },
     methods: {
+        switchState() {
+            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
+        },
         async loadProducts() {
             const productIds = this.cart.items.map((item) => item.product);
             const productsResponse = await fetchProductsById(productIds);
@@ -81,6 +142,15 @@ export default {
         },
         updateQuantity({ productId, colorId, quantity }) {
             this.updateProductQuantity(productId, colorId, quantity);
+        },
+        async loadFeaturedProducts() {
+            const featuredProducts = (await fetchFeaturedProducts()).data['hydra:member'];
+
+            if (featuredProducts.length === 0) {
+                return;
+            }
+
+            [this.featuredProduct] = featuredProducts;
         },
     },
 };
@@ -91,5 +161,13 @@ export default {
   .content {
     @include light-component;
   }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s;
+    }
+
+   .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
 }
 </style>

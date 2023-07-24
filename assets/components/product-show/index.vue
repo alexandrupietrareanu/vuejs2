@@ -1,4 +1,3 @@
-
 <template>
     <div>
         <loading v-if="loading" />
@@ -31,7 +30,13 @@
                         Price: <strong>${{ price }}</strong>
                     </div>
                     <div class="col-8 p-3">
-                       TODO
+                        <cart-add-controls
+                            :add-to-cart-success="addToCartSuccess"
+                            :add-to-cart-loading="addToCartLoading"
+                            :allow-add-to-cart="cart !== null"
+                            :product="product"
+                            @add-to-cart="addToCart"
+                        />
                     </div>
                 </div>
             </div>
@@ -45,10 +50,12 @@ import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import formatPrice from '@/helpers/format-price';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+import CartAddControls from '@/components/product-show/cart-add-controls';
 
 export default {
     name: 'ProductShow',
     components: {
+        CartAddControls,
         Loading,
         TitleComponent,
     },
@@ -82,11 +89,8 @@ export default {
         }
     },
     methods: {
-        addToCart() {
-            this.addProductToCart(this.product, this.selectedColorId, this.quantity);
-        },
-        updateSelectedColor(iri) {
-            this.selectedColorId = iri;
+        addToCart({ quantity, selectedColorId }) {
+            this.addProductToCart(this.product, selectedColorId, quantity);
         },
     },
 };

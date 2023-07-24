@@ -25,6 +25,7 @@
         "https://localhost:8080/build/vendors~_tmp_copy~app~products~shopping-cart.js",
         "https://localhost:8080/build/vendors~app~products~shopping-cart.js",
         "https://localhost:8080/build/vendors~products~shopping-cart.js",
+        "https://localhost:8080/build/vendors~shopping-cart.js",
         "https://localhost:8080/build/products~shopping-cart.js",
         "https://localhost:8080/build/shopping-cart.js"
       ]
