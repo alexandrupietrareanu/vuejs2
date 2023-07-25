@@ -26,6 +26,5 @@
   "build/images/fa-solid-900.svg": "https://localhost:8080/build/images/fa-solid-900.371dbce0.svg",
   "build/images/loading.gif": "https://localhost:8080/build/images/loading.gif",
   "build/images/mvp-logo-dark.png": "https://localhost:8080/build/images/mvp-logo-dark.png",
-  "build/images/mvp-logo-light.png": "https://localhost:8080/build/images/mvp-logo-light.png",
-  "build/vendors~products.js": "https://localhost:8080/build/vendors~products.js"
+  "build/images/mvp-logo-light.png": "https://localhost:8080/build/images/mvp-logo-light.png"
 }

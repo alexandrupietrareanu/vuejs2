@@ -1258,3 +1258,9 @@ cafeb3,::1,GET,https://localhost:8000/api/carts/3148fa1c-572b-4041-b3dd-5efe1c2e
 a77c8c,::1,GET,https://localhost:8000/api/products?featured=1,1690187549,,200
 4382b8,::1,GET,https://localhost:8000/api/products?id%5B0%5D=%2Fapi%2Fproducts%2F1&id%5B1%5D=%2Fapi%2Fproducts%2F5,1690187549,,200
 2a4f13,::1,GET,https://localhost:8000/api/colors,1690187549,,200
+e66520,127.0.0.1,GET,https://127.0.0.1:8001/,1690265712,,200
+e486b5,127.0.0.1,GET,https://127.0.0.1:8001/favicon.ico,1690265713,f9638b,404
+f9638b,127.0.0.1,GET,https://127.0.0.1:8001/favicon.ico,1690265713,,404
+896614,127.0.0.1,GET,https://127.0.0.1:8001/api/products,1690265713,,200
+a68019,127.0.0.1,GET,https://127.0.0.1:8001/,1690265725,,200
+d77842,127.0.0.1,GET,https://127.0.0.1:8001/api/products,1690265725,,200
